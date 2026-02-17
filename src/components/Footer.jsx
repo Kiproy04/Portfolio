@@ -1,5 +1,5 @@
-import { FiGithub, FiLinkedin, FiMail, FiHeart, FiArrowUp } from "react-icons/fi"
-import { SiWhatsapp } from "react-icons/si"
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from "react-icons/fi"
+import { GiMuscleUp } from "react-icons/gi"
 
 export default function Footer() {
   const socialLinks = [
@@ -7,132 +7,131 @@ export default function Footer() {
       name: "GitHub",
       icon: FiGithub,
       href: "https://github.com/Kiproy04",
-      color: "hover:text-purple-400"
+      color: "hover:text-purple-400 hover:border-purple-500/40",
     },
     {
       name: "LinkedIn",
       icon: FiLinkedin,
       href: "https://linkedin.com/in/leroy-kirui-1a4829249",
-      color: "hover:text-blue-400"
-    },
-    {
-      name: "WhatsApp",
-      icon: SiWhatsapp,
-      href: "https://wa.me/254746349486",
-      color: "hover:text-green-400"
+      color: "hover:text-blue-400 hover:border-blue-500/40",
     },
     {
       name: "Email",
       icon: FiMail,
       href: "mailto:delleroy04@gmail.com",
-      color: "hover:text-red-400"
+      color: "hover:text-red-400 hover:border-red-500/40",
     },
   ]
 
   const quickLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home",     id: "home"     },
+    { label: "About",    id: "about"    },
+    { label: "Projects", id: "projects" },
+    { label: "Contact",  id: "contact"  },
   ]
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id)
+    if (section) {
+      window.scrollTo({ top: section.offsetTop - 80, behavior: "smooth" })
+    }
   }
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
+
   return (
-    <footer className="relative bg-[#050505] border-t border-gray-900 pt-16 pb-8 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Brand Column */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="text-3xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                Leroy
+    <footer className="relative bg-[#050505] border-t border-gray-900/80 pt-16 pb-8 px-6">
+      <div className="max-w-6xl mx-auto">
+
+        {/* ── Main grid ── */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12">
+
+          {/* Brand */}
+          <div className="space-y-4 sm:col-span-2 md:col-span-1">
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              aria-label="Scroll to top"
+            >
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center font-bold text-white text-sm">
+                L
+              </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                leedev
               </span>
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Backend Engineer crafting scalable solutions with Python and Django. 
+            </button>
+
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              Backend Engineer crafting scalable APIs and systems with Python and Django.
               Always learning, always building.
             </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>Made with</span>
-              <FiHeart className="text-red-500 fill-red-500 animate-pulse" size={14} />
-              <span>using React & Tailwind</span>
-            </div>
+
+            <p className="flex items-center gap-1.5 text-xs text-gray-600">
+              Made with grit
+              <GiMuscleUp className="text-orange-400" size={14} />
+              · React & Tailwind CSS
+            </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Quick Links</h3>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm inline-flex items-center gap-2 group"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' })
-                    }}
+                <li key={link.id}>
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-gray-500 hover:text-white transition-colors text-sm inline-flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-4 h-px bg-blue-500 transition-all"></span>
+                    <span className="block w-0 group-hover:w-3 h-px bg-blue-500 transition-all duration-200" />
                     {link.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Connect */}
           <div>
-            <h3 className="text-white font-bold mb-4">Connect</h3>
-            <div className="flex flex-wrap gap-3">
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Connect</h3>
+            <div className="flex gap-3 mb-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  target={social.href.startsWith('http') ? '_blank' : undefined}
-                  rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`group flex items-center justify-center w-12 h-12 bg-gray-900 border border-gray-800 rounded-xl ${social.color} transition-all hover:scale-110 hover:border-gray-700`}
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
+                  rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={`flex items-center justify-center w-11 h-11 bg-gray-900 border border-gray-800 rounded-xl text-gray-400 ${social.color} transition-all hover:scale-110`}
                   aria-label={social.name}
                 >
-                  <social.icon size={20} />
+                  <social.icon size={19} />
                 </a>
               ))}
             </div>
-            <p className="text-gray-500 text-sm mt-4">
-              Open to freelance & full-time opportunities
+            <p className="text-gray-600 text-xs leading-relaxed">
+              Open to freelance &amp; full-time opportunities.<br />
+              Based in Kenya · Remote friendly.
             </p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-900">
-          <p className="text-gray-500 text-sm">
+        {/* ── Bottom bar ── */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8 border-t border-gray-900/80">
+          <p className="text-gray-600 text-xs">
             © {new Date().getFullYear()} Leroy Kirui. All rights reserved.
           </p>
-          
-          <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">
-              Terms
-            </a>
-          </div>
+
+          {/* Scroll to top — offset upward so it clears the WhatsApp FAB */}
+          <button
+            onClick={scrollToTop}
+            className="group flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-gray-600 rounded-full text-gray-400 hover:text-white text-xs font-medium transition-all"
+            aria-label="Scroll to top"
+          >
+            <FiArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
+            Back to top
+          </button>
         </div>
 
-        {/* Scroll to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-110 transition-all z-40"
-          aria-label="Scroll to top"
-        >
-          <FiArrowUp size={20} />
-        </button>
       </div>
     </footer>
   )
