@@ -24,7 +24,7 @@ export default function Footer() {
     {
       name: "Email",
       icon: FiMail,
-      href: "mailto:leroii780@gmail.com",
+      href: "mailto:delleroy04@gmail.com",
       color: "hover:text-red-400"
     },
   ]

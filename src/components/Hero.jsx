@@ -116,7 +116,7 @@ export default function Hero() {
               </a>
               
               <a
-                href="mailto:leroii780@gmail.com"
+                href="mailto:delleroy04@gmail.com"
                 className="group p-3 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 hover:border-blue-500/50 rounded-xl transition-all hover:scale-110"
                 aria-label="Email"
               >

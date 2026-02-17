@@ -41,7 +41,7 @@ export default function Projects() {
         { name: "Tailwind", icon: SiTailwindcss, color: "text-teal-400" },
       ],
       github: "https://github.com/Kiproy04/Portfolio",
-      demo: "https://leroy.dev",
+      demo: "https://portfolio-roan-one-78.vercel.app/",
       featured: true,
       stats: { stars: "8", commits: "80+" }
     },
