@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import PixelCard from "./PixelCard";
-import "./PixelCard.css";
 
 export default function ProjectCard({ title, description, tech, variant = "pink" }) {
   const cardRef = useRef(null);

@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { FiGithub, FiExternalLink, FiFolder, FiStar } from "react-icons/fi"
+import { useState } from "react";
+import { FiGithub, FiExternalLink, FiFolder, FiStar } from "react-icons/fi";
 import { 
   SiPython, 
   SiDjango, 
@@ -10,11 +10,10 @@ import {
   SiDocker,
   SiRedis,
   SiTailwindcss,
-} from "react-icons/si"
-import Plasma from "./Plasma"
+} from "react-icons/si";
 
 export default function Projects() {
-  const [hoveredProject, setHoveredProject] = useState(null)
+  const [hoveredProject, setHoveredProject] = useState(null);
 
   const projects = [
     {
@@ -76,27 +75,15 @@ export default function Projects() {
       featured: false,
       stats: { stars: "3", commits: "90+" }
     },
-  ]
+  ];
 
   return (
     <section
       id="projects"
-      className="py-24 px-6 bg-[#0a0a0a] relative overflow-hidden"
+      className="py-24 px-6 pb-32 bg-[#0a0a0a] relative overflow-hidden"
     >
-      {/* Plasma Background */}
-      <div className="absolute inset-0 opacity-20">
-        <Plasma 
-          color="#8b5cf6"
-          speed={0.3}
-          direction="forward"
-          scale={1.3}
-          opacity={0.5}
-          mouseInteractive={false}
-        />
-      </div>
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+      {/* Subtle Grid overlay for texture */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -125,25 +112,20 @@ export default function Projects() {
               className="group relative"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Card */}
               <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-2xl overflow-hidden hover:border-gray-700 transition-all duration-500 h-full flex flex-col">
                 
-                {/* Project Image - FIXED HEIGHT */}
+                {/* Project Image */}
                 <div className="relative h-48 overflow-hidden bg-black">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  
-                  {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                  
-                  {/* Featured badge */}
+
                   {project.featured && (
                     <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1.5 bg-yellow-500/90 backdrop-blur-sm rounded-full">
                       <FiStar size={12} className="text-black fill-black" />
@@ -197,7 +179,6 @@ export default function Projects() {
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
-                  
                   <p className="text-gray-400 leading-relaxed mb-6 flex-1">
                     {project.description}
                   </p>
@@ -241,7 +222,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Hover glow effect */}
+                {/* Hover glow */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl"></div>
                 </div>
@@ -265,5 +246,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }

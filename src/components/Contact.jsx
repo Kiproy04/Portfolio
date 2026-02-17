@@ -34,8 +34,8 @@ export default function Contact() {
     {
       icon: FiMail,
       label: "Email",
-      value: "leroy.dev@email.com",
-      link: "mailto:leroy.dev@email.com",
+      value: "leroii780@gmail.com",
+      link: "mailto:leroii780@gmail.com",
       color: "text-red-400",
       bgColor: "bg-red-500/10",
       borderColor: "border-red-500/20",
@@ -53,7 +53,7 @@ export default function Contact() {
       icon: FiLinkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      link: "https://linkedin.com/in/yourprofile",
+      link: "https://linkedin.com/in/leroy-kirui-1a4829249",
       color: "text-blue-400",
       bgColor: "bg-blue-500/10",
       borderColor: "border-blue-500/20",
@@ -61,8 +61,8 @@ export default function Contact() {
     {
       icon: SiWhatsapp,
       label: "WhatsApp",
-      value: "+254 XXX XXX XXX",
-      link: "https://wa.me/254XXXXXXXXX",
+      value: "+254 0746349486",
+      link: "https://wa.me/254746349486",
       color: "text-green-400",
       bgColor: "bg-green-500/10",
       borderColor: "border-green-500/20",
@@ -72,7 +72,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-neutral-950 relative overflow-hidden"
+      className="relative py-24 px-6 bg-[#0a0a0a] overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>

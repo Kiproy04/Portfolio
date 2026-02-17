@@ -12,19 +12,19 @@ export default function Footer() {
     {
       name: "LinkedIn",
       icon: FiLinkedin,
-      href: "https://linkedin.com/in/yourprofile",
+      href: "https://linkedin.com/in/leroy-kirui-1a4829249",
       color: "hover:text-blue-400"
     },
     {
       name: "WhatsApp",
       icon: SiWhatsapp,
-      href: "https://wa.me/254XXXXXXXXX",
+      href: "https://wa.me/254746349486",
       color: "hover:text-green-400"
     },
     {
       name: "Email",
       icon: FiMail,
-      href: "mailto:leroy.dev@email.com",
+      href: "mailto:leroii780@gmail.com",
       color: "hover:text-red-400"
     },
   ]

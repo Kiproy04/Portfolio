@@ -1,6 +1,6 @@
 .pixel-card {
   height: 400px;
-  width: 300px;
+  width: 100%;
   position: relative;
   overflow: hidden;
   display: grid;
