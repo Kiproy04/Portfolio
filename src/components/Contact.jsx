@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiSend, FiCheck, FiCalendar, FiX, FiMessageCircle, FiArrowRight } from "react-icons/fi"
+import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiSend, FiCheck, FiCalendar, FiX, FiMessageCircle, FiArrowRight, FiCopy } from "react-icons/fi"
 import { SiWhatsapp } from "react-icons/si"
 import emailjs from '@emailjs/browser'
 
@@ -79,6 +79,26 @@ export default function Contact() {
   })
   const [status, setStatus] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = async (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    try {
+      await navigator.clipboard.writeText("delleroy04@gmail.com")
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      const el = document.createElement("textarea")
+      el.value = "delleroy04@gmail.com"
+      document.body.appendChild(el)
+      el.select()
+      document.execCommand("copy")
+      document.body.removeChild(el)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -180,10 +200,23 @@ export default function Contact() {
                       <div className={`p-2 rounded-lg bg-gray-800 ${method.color} group-hover:scale-110 transition-transform`}>
                         <method.icon size={18} />
                       </div>
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <p className="text-xs text-gray-500">{method.label}</p>
                         <p className="text-white text-sm font-medium truncate">{method.value}</p>
                       </div>
+                      {/* Copy button — only on email */}
+                      {method.label === "Email" && (
+                        <button
+                          onClick={copyEmail}
+                          className="flex-shrink-0 p-2 rounded-lg bg-gray-800/80 hover:bg-gray-700 text-gray-400 hover:text-white transition-all"
+                          aria-label="Copy email address"
+                        >
+                          {copied
+                            ? <FiCheck size={14} className="text-green-400" />
+                            : <FiCopy size={14} />
+                          }
+                        </button>
+                      )}
                     </a>
                   ))}
                 </div>
