@@ -10,12 +10,14 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden; /* ← added */
   }
 
   body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    max-width: 100%;     /* ← added */
     background-color: #0a0a0a;
     color: #ffffff;
     -webkit-font-smoothing: antialiased;
@@ -24,6 +26,8 @@
 
   #root {
     width: 100%;
+    max-width: 100%;     /* ← added — prevents root from exceeding viewport */
+    overflow-x: hidden;  /* ← added */
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -103,19 +107,18 @@
 }
 
 /* Animation Delays */
-.animation-delay-200 { animation-delay: 0.2s; }
-.animation-delay-400 { animation-delay: 0.4s; }
-.animation-delay-600 { animation-delay: 0.6s; }
-.animation-delay-800 { animation-delay: 0.8s; }
-.animation-delay-1000 { animation-delay: 1s; }
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-200  { animation-delay: 0.2s; }
+.animation-delay-400  { animation-delay: 0.4s; }
+.animation-delay-600  { animation-delay: 0.6s; }
+.animation-delay-800  { animation-delay: 0.8s; }
+.animation-delay-1000 { animation-delay: 1s;   }
+.animation-delay-2000 { animation-delay: 2s;   }
+.animation-delay-4000 { animation-delay: 4s;   }
 
 /* ===================================
    SCROLLBAR
    =================================== */
 
-/* Webkit Browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -135,7 +138,6 @@
   background: linear-gradient(180deg, #60a5fa 0%, #a78bfa 100%);
 }
 
-/* Firefox */
 html {
   scrollbar-width: thin;
   scrollbar-color: #3b82f6 #0a0a0a;
@@ -168,7 +170,6 @@ textarea:focus-visible {
    FORM INPUTS
    =================================== */
 
-/* Placeholder */
 ::placeholder {
   color: #6b7280;
   opacity: 1;
@@ -178,7 +179,6 @@ textarea:focus-visible {
   color: #6b7280;
 }
 
-/* Input Styling */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -197,7 +197,6 @@ textarea:focus {
   border-color: #3b82f6;
 }
 
-/* Autofill */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
@@ -231,6 +230,7 @@ video {
 section {
   position: relative;
   width: 100%;
+  overflow-x: hidden; /* ← added — each section clips its own overflowing children */
 }
 
 /* ===================================
@@ -266,6 +266,7 @@ section {
 
 * {
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box; /* ← added — ensures padding never pushes elements wider than their container */
 }
 
 /* ===================================
