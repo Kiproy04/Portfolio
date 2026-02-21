@@ -1,104 +1,30 @@
-import { useEffect, useRef } from "react";
 import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from "react-icons/fi";
+import Orb from "./Orb";
 
-// ── Plasma Canvas ────────────────────────────────────────────────────────────
-function PlasmaCanvas() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    let animId;
-    let t = 0;
-
-    const resize = () => {
-      canvas.width  = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    // Portfolio-matched palette — blues, cyans, deep purples (no magenta/pink)
-    const palette = (v) => {
-      const r = Math.floor(10  + 60  * Math.pow(Math.sin(Math.PI * v * 2 + 0.5), 2)); // low red — keeps it cool
-      const g = Math.floor(20  + 120 * Math.pow(Math.sin(Math.PI * v * 2.5 + 1.8), 2)); // cyan/teal punch
-      const b = Math.floor(80  + 175 * Math.pow(Math.sin(Math.PI * v * 1.8 + 0.8), 2)); // dominant blue
-      return `rgb(${r},${g},${b})`;
-    };
-
-    const CELL = 4;
-
-    const draw = () => {
-      const W = canvas.width;
-      const H = canvas.height;
-      const cols = Math.ceil(W / CELL);
-      const rows = Math.ceil(H / CELL);
-
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          const x = col / cols;
-          const y = row / rows;
-
-          // Richer plasma — 5 overlapping waves for more complex patterns
-          const v =
-            Math.sin(x * 12 + t * 1.1) +
-            Math.sin(y * 12 + t * 0.9) +
-            Math.sin((x + y) * 9 + t * 1.4) +
-            Math.sin((x - y) * 7 + t * 0.7) +
-            Math.sin(
-              Math.sqrt(
-                Math.pow((x - 0.5) * 9, 2) +
-                Math.pow((y - 0.5) * 9, 2)
-              ) - t * 1.2
-            );
-
-          const norm = (v + 5) / 10; // normalise to [0,1]
-          ctx.fillStyle = palette(norm);
-          ctx.fillRect(col * CELL, row * CELL, CELL, CELL);
-        }
-      }
-
-      // Lighter veil — blue plasma is naturally darker so needs less overlay
-      ctx.fillStyle = "rgba(4, 4, 12, 0.50)";
-      ctx.fillRect(0, 0, W, H);
-
-      t += 0.018; // slightly faster movement
-      animId = requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ imageRendering: "pixelated" }}
-    />
-  );
-}
-
-// ── Hero ─────────────────────────────────────────────────────────────────────
 export default function Hero() {
   return (
     <section
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-[#04040c]"
     >
-      <PlasmaCanvas />
+      {/* Orb background — pointer-events-auto so hover distortion works */}
+      <div className="absolute inset-0 z-0 pointer-events-auto">
+        <Orb
+          hue={0}
+          hoverIntensity={0.8}
+          rotateOnHover={true}
+          forceHoverState={false}
+          backgroundColor="#04040c"
+        />
+      </div>
 
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none z-10" />
 
       {/* Radial darkening at edges */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_40%,rgba(4,4,12,0.75)_100%)] pointer-events-none z-10" />
-      {/* Top vignette — stops plasma bleeding into navbar */}
+
+      {/* Top vignette — stops orb bleeding into navbar */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#04040c] to-transparent pointer-events-none z-10" />
 
       {/* Content */}
