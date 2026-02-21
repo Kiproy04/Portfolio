@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiArrowRight, FiDownload } from "react-icons/fi";
 import Orb from "./Orb";
 
 export default function Hero() {
@@ -85,16 +85,18 @@ export default function Hero() {
             href="#projects"
             className="group relative inline-flex flex-1 min-w-0 items-center justify-center gap-1.5 px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(99,102,241,0.9)]"
           >
-            <span className="relative z-10 text-sm sm:text-base truncate">View My Work</span>
+            <span className="relative z-10 text-sm sm:text-base whitespace-nowrap">My Work</span>
             <FiArrowRight className="relative z-10 flex-shrink-0 group-hover:translate-x-1 transition-transform" size={18} />
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           </a>
 
           <a
-            href="#contact"
-            className="inline-flex flex-1 min-w-0 items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 hover:border-white/60 text-white font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            href="/resume.pdf"
+            download
+            className="group inline-flex flex-1 min-w-0 items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/40 hover:to-blue-500/40 backdrop-blur-md border-2 border-cyan-400/40 hover:border-cyan-300/70 text-cyan-300 hover:text-white font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
           >
-            <span className="text-sm sm:text-base truncate">Let's Talk</span>
+            <FiDownload className="flex-shrink-0 group-hover:-translate-y-0.5 transition-transform" size={16} />
+            <span className="text-sm sm:text-base whitespace-nowrap">Download CV</span>
           </a>
         </div>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FiMenu, FiX, FiDownload } from 'react-icons/fi'
+import { FiMenu, FiX, FiMessageCircle } from 'react-icons/fi'
 
 // Defined outside component — stable reference, never recreated on render
 const NAV_ITEMS = [
@@ -52,7 +52,6 @@ export default function Navbar() {
         behavior: 'smooth',
       })
       setMobileMenuOpen(false)
-      // Let scroll detection update activeSection naturally
     }
   }
 
@@ -101,18 +100,17 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Right side — CV + mobile toggle */}
+            {/* Right side — Let's Talk + mobile toggle */}
             <div className="flex items-center gap-2 flex-shrink-0">
-              {/* CV download button — desktop */}
-              <a
-                href="/resume.pdf"
-                download
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 hover:bg-white/10 border border-gray-700 hover:border-gray-500 text-white text-xs font-semibold rounded-full transition-all"
-                aria-label="Download CV"
+              {/* Let's Talk button — desktop (scrolls to contact) */}
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-blue-600/30 to-violet-600/30 hover:from-blue-600/50 hover:to-violet-600/50 border border-blue-500/40 hover:border-blue-400/70 text-blue-300 hover:text-white text-xs font-semibold rounded-full transition-all shadow-[0_0_12px_rgba(99,102,241,0.2)] hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+                aria-label="Go to contact"
               >
-                <FiDownload size={13} />
-                Resume
-              </a>
+                <FiMessageCircle size={13} />
+                Let's Talk
+              </button>
 
               {/* Mobile hamburger */}
               <button
@@ -155,17 +153,15 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* CV download — mobile */}
+          {/* Bottom actions — mobile */}
           <li className="pt-1 border-t border-gray-800/60">
-            <a
-              href="/resume.pdf"
-              download
-              className="flex items-center gap-2 w-full px-5 py-3 rounded-xl text-sm font-semibold text-blue-400 hover:bg-blue-600/10 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="flex items-center gap-2 w-full px-5 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-600/20 to-violet-600/20 hover:from-blue-600/40 hover:to-violet-600/40 border border-blue-500/30 hover:border-blue-400/60 text-blue-300 hover:text-white transition-all shadow-[0_0_12px_rgba(99,102,241,0.15)]"
             >
-              <FiDownload size={16} />
-              Download Resume
-            </a>
+              <FiMessageCircle size={16} />
+              Let's Talk
+            </button>
           </li>
         </ul>
       </div>
