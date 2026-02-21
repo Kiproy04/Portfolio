@@ -7,7 +7,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-[#04040c]"
     >
-      {/* Orb background — pointer-events-auto so hover distortion works */}
+      {/* Orb background — sized to always cover content area */}
       <div className="absolute inset-0 z-0 pointer-events-auto">
         <Orb
           hue={0}
@@ -28,18 +28,18 @@ export default function Hero() {
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#04040c] to-transparent pointer-events-none z-10" />
 
       {/* Content */}
-      <div className="relative z-20 w-full max-w-4xl mx-auto text-center flex flex-col items-center gap-6 pt-24 pb-24">
+      <div className="relative z-20 w-full max-w-4xl mx-auto text-center flex flex-col items-center gap-5 pt-28 pb-16">
 
         {/* Greeting Badge */}
         <div className="animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/40 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-            <span className="text-2xl">👋</span>
-            <span className="text-blue-300 font-semibold text-sm sm:text-base">Hey, I'm</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/40 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+            <span className="text-xl sm:text-2xl">👋</span>
+            <span className="text-blue-300 font-semibold text-xs sm:text-base">Hey, I'm</span>
           </div>
         </div>
 
         {/* Name */}
-        <h1 className="animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+        <h1 className="animate-fade-in-up text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
           <span
             className="text-white"
             style={{
@@ -52,7 +52,7 @@ export default function Hero() {
         </h1>
 
         {/* Title */}
-        <h2 className="animate-fade-in-up animation-delay-200 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+        <h2 className="animate-fade-in-up animation-delay-200 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
           <span
             className="text-cyan-300"
             style={{
@@ -66,7 +66,7 @@ export default function Hero() {
 
         {/* Description */}
         <p
-          className="animate-fade-in-up animation-delay-400 text-base sm:text-lg text-gray-200 max-w-2xl leading-relaxed"
+          className="animate-fade-in-up animation-delay-400 text-sm sm:text-lg text-gray-200 max-w-2xl leading-relaxed"
           style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95)" }}
         >
           I build <span className="text-white font-bold">scalable APIs</span> and{" "}
@@ -75,22 +75,26 @@ export default function Hero() {
           <span className="text-cyan-300 font-bold">Let's create something amazing together.</span>
         </p>
 
-        {/* CTA Buttons */}
-        <div className="animate-fade-in-up animation-delay-600 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        {/* CTA Buttons
+            — always side-by-side (flex-row), each button takes equal share of space.
+            — min-w-0 + flex-1 keeps them sharing space without overflowing on tiny screens.
+            — px scales down on very small screens so text fits.
+        */}
+        <div className="animate-fade-in-up animation-delay-600 flex flex-row gap-3 w-full max-w-sm mx-auto">
           <a
             href="#projects"
-            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(99,102,241,0.9)] w-full sm:w-auto"
+            className="group relative inline-flex flex-1 min-w-0 items-center justify-center gap-1.5 px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(99,102,241,0.9)]"
           >
-            <span className="relative z-10">View My Work</span>
-            <FiArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" size={20} />
+            <span className="relative z-10 text-sm sm:text-base truncate">View My Work</span>
+            <FiArrowRight className="relative z-10 flex-shrink-0 group-hover:translate-x-1 transition-transform" size={18} />
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           </a>
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 hover:border-white/60 text-white font-bold rounded-full transition-all hover:scale-105 w-full sm:w-auto shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            className="inline-flex flex-1 min-w-0 items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 hover:border-white/60 text-white font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
           >
-            Let's Talk
+            <span className="text-sm sm:text-base truncate">Let's Talk</span>
           </a>
         </div>
 
@@ -107,27 +111,27 @@ export default function Hero() {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
               aria-label={label}
-              className="group p-3 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-violet-400/60 rounded-xl transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(139,92,246,0.4)]"
+              className="group p-2.5 sm:p-3 bg-white/5 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-blue-400/60 rounded-xl transition-all hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
             >
-              <Icon className="text-gray-300 group-hover:text-white transition-colors" size={22} />
+              <Icon className="text-gray-300 group-hover:text-white transition-colors" size={20} />
             </a>
           ))}
         </div>
 
         {/* Availability Badge */}
         <div className="animate-fade-in-up animation-delay-1000">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-green-500/20 backdrop-blur-md border border-green-400/40 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-            <span className="relative flex h-3 w-3">
+          <div className="inline-flex items-center gap-3 px-4 py-2 sm:px-5 sm:py-2.5 bg-green-500/20 backdrop-blur-md border border-green-400/40 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+            <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-400" />
+              <span className="relative inline-flex rounded-full h-full w-full bg-green-400" />
             </span>
-            <span className="text-sm font-semibold text-green-300">Available for opportunities</span>
+            <span className="text-xs sm:text-sm font-semibold text-green-300">Available for opportunities</span>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-1 text-gray-400 animate-bounce">
+      {/* Scroll indicator — hidden on small mobile to save space */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-1 text-gray-400 animate-bounce">
         <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
