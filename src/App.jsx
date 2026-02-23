@@ -9,10 +9,8 @@ import './App.css'
 function App() {
   return (
     <div className="overflow-x-hidden">
-      {/* Fixed Navbar */}
       <Navbar />
 
-      {/* Main Content */}
       <main className="relative overflow-x-hidden">
         {/* Background orbs — fixed but contained, -z-10 keeps them behind everything */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -26,7 +24,6 @@ function App() {
         <Contact />
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   )
