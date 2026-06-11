@@ -91,7 +91,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="/resume.pdf"
+            href="/LeroyKirui.pdf"
             download
             className="group inline-flex flex-1 min-w-0 items-center justify-center gap-2 px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/40 hover:to-blue-500/40 backdrop-blur-md border-2 border-cyan-400/40 hover:border-cyan-300/70 text-cyan-300 hover:text-white font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
           >
