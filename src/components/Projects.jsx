@@ -40,7 +40,7 @@ export default function Projects() {
       description:
         "Personal portfolio built with React and Tailwind CSS. Features smooth animations, responsive design, and modern UI/UX patterns.",
       image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+        "/og-image.png",
       tech: [
         { name: "React", icon: SiReact, color: "text-cyan-400" },
         { name: "Tailwind", icon: SiTailwindcss, color: "text-teal-400" },
