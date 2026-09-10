@@ -18,18 +18,18 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Zinocare Backend",
+      title: "Zinocare",
       description:
         "Healthcare management system with user authentication, appointment scheduling, and comprehensive medical records management. Built with RESTful API architecture and secure data handling.",
       image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
+        "/zinocare.png",
       tech: [
         { name: "Python", icon: SiPython, color: "text-yellow-400" },
         { name: "Django", icon: SiDjango, color: "text-green-400" },
         { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
       ],
       github: "https://github.com/Kiproy04/Zinocare_Backend",
-      demo: null,
+      demo: "https://zinocare-frontend.vercel.app/",
       featured: true,
       stats: { stars: "12", commits: "150+" },
       hasRepo: true,
