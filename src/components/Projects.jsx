@@ -10,6 +10,7 @@ import {
   SiDocker,
   SiRedis,
   SiTailwindcss,
+  SiShell,
 } from "react-icons/si";
 
 export default function Projects() {
@@ -71,21 +72,19 @@ export default function Projects() {
     },
     {
       id: 4,
-      title: "Task Manager API",
+      title: "Dev-toolkit",
       description:
-        "Team collaboration tool with real-time updates, role-based access control, file uploads, and notification system. Containerized deployment with Docker.",
+        "A collection of personal bash scripts to speed up everyday dev workflows — Git pushing, Python environment setup, and script management — all in one place.",
       image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+        "/dev-toolkit.png",
       tech: [
-        { name: "Django", icon: SiDjango, color: "text-green-400" },
-        { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-        { name: "Docker", icon: SiDocker, color: "text-blue-500" },
+        { name: "Shell", icon: SiShell, color: "text-green-400" },
       ],
-      github: null,
+      github: "https://github.com/Kiproy04/dev-toolkit",
       demo: null,
       featured: false,
       stats: null,
-      hasRepo: false,
+      hasRepo: true,
     },
   ];
 
