@@ -54,9 +54,9 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "E-Commerce API",
+      title: "Easyworship",
       description:
-        "Full-featured REST API with JWT authentication, payment integration, order management, and real-time inventory tracking. Scalable architecture with caching layer.",
+        "A church management system that streamlines administrative tasks, including member management, event scheduling, and donation tracking. Built with FastAPI, MongoDB, and Redis for high performance.",
       image:
         "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
       tech: [
@@ -64,7 +64,7 @@ export default function Projects() {
         { name: "MongoDB", icon: SiMongodb, color: "text-green-400" },
         { name: "Redis", icon: SiRedis, color: "text-red-400" },
       ],
-      github: null,
+      github: "https://github.com/Kiproy04/Easyworship",
       demo: null,
       featured: false,
       stats: null,
