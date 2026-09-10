@@ -79,7 +79,7 @@ export default function Projects() {
       image:
         "/dev-toolkit.png",
       tech: [
-        { name: "Shell", icon: siShelly, color: "text-green-400" },
+        { name: "Shell", icon: siShell, color: "text-green-400" },
       ],
       github: "https://github.com/Kiproy04/dev-toolkit",
       demo: null,
