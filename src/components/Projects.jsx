@@ -12,7 +12,7 @@ import {
   SiTailwindcss,
   SiShell,
 } from "react-icons/si";
-import { siShell } from "simple-icons";
+import { siShell, siShelly } from "simple-icons";
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -79,7 +79,7 @@ export default function Projects() {
       image:
         "/dev-toolkit.png",
       tech: [
-        { name: "Shell", icon: siShell, color: "text-green-400" },
+        { name: "Shell", icon: siShelly, color: "text-green-400" },
       ],
       github: "https://github.com/Kiproy04/dev-toolkit",
       demo: null,
